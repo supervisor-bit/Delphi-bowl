@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C570EF0A-9AAB-48F8-A91B-386D053DA3AA}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BowlItemPkg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="BowlDemo\Project1.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BowlItemPkg">
+        <MSBuild Projects="BowlItemPkg.dproj"/>
+    </Target>
+    <Target Name="BowlItemPkg:Clean">
+        <MSBuild Projects="BowlItemPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BowlItemPkg:Make">
+        <MSBuild Projects="BowlItemPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Project1">
+        <MSBuild Projects="BowlDemo\Project1.dproj"/>
+    </Target>
+    <Target Name="Project1:Clean">
+        <MSBuild Projects="BowlDemo\Project1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project1:Make">
+        <MSBuild Projects="BowlDemo\Project1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BowlItemPkg;Project1"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BowlItemPkg:Clean;Project1:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BowlItemPkg:Make;Project1:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

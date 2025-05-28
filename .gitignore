@@ -1,0 +1,26 @@
+# Delphi kompiláty a dočasné soubory
+*.dcu
+*.~*
+*.ddp
+*.dsk
+*.cfg
+*.local
+*.identcache
+*.tvsconfig
+*.exe
+*.dll
+*.bpl
+*.map
+*.ocx
+*.tlb
+*.dcp
+*.dres
+*.bak
+*.stat
+
+# Historie a zálohy
+__history/
+*.tmp
+
+# Skryté adresáře IDE
+*.vs/
